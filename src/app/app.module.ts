@@ -11,6 +11,12 @@ import { NabvarComponent } from './componentes/nabvar/nabvar.component';
 import { PrestamoComponent } from './componentes/prestamo/prestamo.component';
 import { UsuariosComponent } from './componentes/usuarios/usuarios.component';
 import { ZonasComponent } from './componentes/zonas/zonas.component';
+import {FormsModule,ReactiveFormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatTableModule} from "@angular/material";
+import { ClientesComponent } from './componentes/clientes/clientes.component';
+import { AgenteComponent } from './componentes/agente/agente.component';
 
 @NgModule({
   declarations: [
@@ -19,11 +25,18 @@ import { ZonasComponent } from './componentes/zonas/zonas.component';
     NabvarComponent,
     PrestamoComponent,
     UsuariosComponent,
-    ZonasComponent
+    ZonasComponent,
+    ClientesComponent,
+    AgenteComponent
   ],
   imports: [
     BrowserModule,
-    APP_ROUTING
+    APP_ROUTING,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

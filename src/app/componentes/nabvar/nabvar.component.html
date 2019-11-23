@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand pr-3 text-white" href="#">
+    <img src="../../../assets/img/loan_logo.png" width="40" height="35" alt="">
+      Black Star</a>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li routerLinkActive="active">
+        <a (click)="mostrar=false"  class="nav-link" routerLink="home" >Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li routerLinkActive="active">
+        <a (click)="mostrar=false" class="nav-link" routerLink="prestamo">Préstamo</a>
+      </li>
+
+      <li routerLinkActive="active" class="nav-item dropdown">
+        <a (click)="mostrar=!mostrar" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Registros
+        </a>
+        <div *ngIf="mostrar" class="dropdown-menu show" aria-labelledby="navbarDropdown">
+          <a (click)="mostrar=!mostrar" class="dropdown-item" routerLink="usuario">Usuario</a>
+          <div class="dropdown-divider"></div>
+          <a (click)="mostrar=!mostrar" class="dropdown-item" routerLink="zona">Zonas</a>
+          <div class="dropdown-divider"></div>
+          <a (click)="mostrar=!mostrar" class="dropdown-item" routerLink="cliente">Clientes</a>
+          <div class="dropdown-divider"></div>
+          <a (click)="mostrar=!mostrar" class="dropdown-item" routerLink="agente">Agrentes</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+    </ul>
+
+  </div>
+</nav>

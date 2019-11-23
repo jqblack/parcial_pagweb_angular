@@ -1,0 +1,51 @@
+<div class="bg-dark pl-2 pt-4 pr-2 pb-2">
+  <h3 class="text-white">Registro de Usuarios</h3>
+</div>
+
+<div class="container mt-3">
+
+  <div class="card">
+    <div class="mt-3 mb-3 mr-3 ml-3">
+      <form>
+        <div class="row">
+          <div class="col">
+
+            <label class="text-center">Código</label>
+            <input type="text" class="form-control" placeholder="Código">
+            <br>
+            <label class="text-center">Nombre de Usuario</label>
+            <input type="text" class="form-control" placeholder="User Name">
+            <br>
+            <label class="text-center">Nombre</label>
+            <input type="text" class="form-control" placeholder="Nombre">
+            <br>
+
+          </div>
+          <div class="col">
+
+            <label class="text-center">Apellidos</label>
+            <input type="text" class="form-control" placeholder="Apellidos">
+            <br>
+            <label class="text-center">Contraseña</label>
+            <input type="password" class="form-control" placeholder="Contraseña">
+            <br>
+            <label class="text-center">Confirmar Contraseña</label>
+            <input type="password" class="form-control" placeholder="Confirmar Contraseña">
+            <br>
+          </div>
+        </div>
+
+        <div class="float-right">
+          <button class=" mr-2 btn" ngClass="btn-success" (click)="Guardar()" [disabled]="cargando">
+            <i [ngClass]="{ 'fa-save': !cargando, 'fa-refresh fa-spin': cargando }" class="fa"></i>
+            <span *ngIf="!cargando"> Guardar </span>
+            <span *ngIf="cargando"> Espere por favor</span>
+          </button>
+          <button class="btn btn-danger">Cancelar</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+</div>

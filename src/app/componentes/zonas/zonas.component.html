@@ -1,0 +1,99 @@
+<div class="bg-dark pl-2 pt-4 pr-2 pb-2">
+  <h3 class="text-white">Registro de Zonas</h3>
+</div>
+<div class="container mt-3">
+
+  <div class="card">
+    <div class="mt-3 mb-3 mr-3 ml-3">
+
+      <div class="row">
+        <div class="col"></div>
+        <div class="col">
+          <div class="container">
+            <div class="mt-1 mb-2 mr-1 ml-1">
+
+              <form (ngSubmit)="Guardar(Formulario)"  #Formulario="ngForm">
+                <label class="text-dark ml-2">Código</label>
+                <input type="text" class="form-control" name="codzona"
+                       [ngModel]="zona.codigo"
+                       required #codigo = "ngModel"
+                       placeholder="Código" minlength="3">
+
+
+                <div *ngIf="codigo.errors?.minlength && codigo.touched">
+                  <span class="text-danger">
+                   Este campo necesita por lo menos {{codigo.errors.minlength.requiredLength}} caracteres
+                  </span>
+                </div>
+
+                <br>
+                <label class="text-dark ml-2">Nombre Zona</label>
+                <input type="text" name="namezona"
+                       [ngModel]="zona.nombre"
+                       required #nombre ="ngModel"
+                       class="form-control" placeholder="Nombre Zona">
+
+                <div *ngIf="nombre.touched">
+                     <span class="text-danger">
+                       Este campo es necesario
+                   </span>
+                </div>
+
+                <div>
+
+                </div>
+
+                <br>
+
+                <div class="float-right">
+                  <button type="submit" class=" mr-2 btn" ngClass="btn-success"  [disabled]="cargando">
+                    <i [ngClass]="{ 'fa-save': !cargando, 'fa-refresh fa-spin': cargando }" class="fa"></i>
+                    <span *ngIf="!cargando"> Guardar </span>
+                    <span *ngIf="cargando"> Espere por favor</span>
+                  </button>
+                  <button type="button" (click)="TestAPI()" class="btn btn-danger">Cancelar</button>
+                </div>
+              </form>
+
+            </div>
+
+          </div>
+        </div>
+        <div class="col"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <br>
+
+  <div *ngIf="ListaZona.length > 0" class="container">
+    <table class="table">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Código</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Acción</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let zona of ListaZona; index as i">
+        <th scope="row">{{i+1}}</th>
+        <td>{{zona.f_codigo}}</td>
+        <td>{{zona.f_descripcion}}</td>
+        <td><button class="btn btn-success dropdown-toggle" type="button"
+                    data-toggle="dropdown">Acción</button></td>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </tr>
+
+      </tbody>
+    </table>
+
+  </div>
+
+</div>
